@@ -36,14 +36,22 @@ void PrintAMatrix(int[,] matrix)
     }
 }
 
+
+Console.WriteLine("Введите позицию элемента:");
+Console.Write("Стрoка:");
+int rowNum = Convert.ToInt32(Console.ReadLine());
+Console.Write("Столбец:");
+int colNum = Convert.ToInt32(Console.ReadLine());
+
+void GetElement(int[,] matrix)
+{
+    if (rowNum > matrix.GetLength(0) || rowNum < 0 ||
+       colNum > matrix.GetLength(1) || colNum < 0)
+        Console.Write($"{rowNum-1}, {colNum-1} -> такого числа в массиве нет");
+
+    else Console.Write($"Заданный элемент матрицы -> {matrix[rowNum-1, colNum-1]}");
+}
 int[,] array2D = CreateMatrixRndInt(3, 4, -9, 9);
 PrintAMatrix(array2D);
-
-Console.WriteLine("Введите позицию элемента.");
-Console.Write("Стрoка:");
-int row1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Столбец:");
-int col1 = Convert.ToInt32(Console.ReadLine());
-
-
+GetElement(array2D);
 
